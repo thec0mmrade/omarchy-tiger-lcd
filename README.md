@@ -7,7 +7,7 @@ A retro LCD-inspired light theme for [Omarchy](https://omarchy.com). Cool silver
 ## Install
 
 ```bash
-omarchy-theme-install https://github.com/yourusername/omarchy-tiger-lcd
+omarchy-theme-install https://github.com/thec0mmrade/omarchy-tiger-lcd
 ```
 
 Then apply:
