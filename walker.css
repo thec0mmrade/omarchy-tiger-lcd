@@ -1,0 +1,11 @@
+@define-color selected-text #626870;
+@define-color text #2A2B26;
+@define-color base #BCBDC1;
+@define-color border #2A2B26;
+@define-color foreground #2A2B26;
+@define-color background #BCBDC1;
+
+* {
+  text-shadow: 1px 1px 0px rgba(42, 43, 38, 0.3);
+  -gtk-icon-shadow: 1px 1px rgba(42, 43, 38, 0.3);
+}
