@@ -40,12 +40,12 @@ if [ -d "$GHOSTTY_DIR" ]; then
 
   GHOSTTY_CONF="$GHOSTTY_DIR/config"
   if [ -f "$GHOSTTY_CONF" ]; then
-    if ! grep -q "^custom-shader.*lcd-shadow.glsl" "$GHOSTTY_CONF"; then
-      printf '\n# LCD drop shadow shader\ncustom-shader = ~/.config/ghostty/lcd-shadow.glsl\ncustom-shader-animation = false\n' >> "$GHOSTTY_CONF"
-      echo "[ok] Added custom-shader lines to $GHOSTTY_CONF"
-    else
-      echo "[ok] custom-shader already configured in $GHOSTTY_CONF (skipped)"
-    fi
+    # Remove any existing custom-shader lines (and their comments) before adding ours
+    sed -i '/^#.*shader/d; /^custom-shader/d; /^custom-shader-animation/d' "$GHOSTTY_CONF"
+    # Remove trailing blank lines left behind
+    sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "$GHOSTTY_CONF"
+    printf '\n# LCD drop shadow shader\ncustom-shader = ~/.config/ghostty/lcd-shadow.glsl\ncustom-shader-animation = false\n' >> "$GHOSTTY_CONF"
+    echo "[ok] Replaced custom-shader lines in $GHOSTTY_CONF"
   else
     echo "[!!] No ghostty config found at $GHOSTTY_CONF — add these lines manually:"
     echo '    custom-shader = ~/.config/ghostty/lcd-shadow.glsl'
