@@ -35,7 +35,7 @@ The theme is a flat collection of config files consumed by `omarchy-theme-set`. 
 Files in `extras/` are **not** managed by `omarchy-theme-set` and must be installed/removed manually:
 
 - **`extras/DepartureMonoNerdFont*.otf`** — Nerd Font-patched Departure Mono font files (Regular, Mono, Propo). Installed to `~/.local/share/fonts/` and set as system font via `omarchy-font-set`.
-- **`extras/lcd-shadow.glsl`** — GLSL fragment shader for Ghostty that renders a diagonal LCD drop shadow on text.
+- **`extras/lcd-shadow.glsl`** — GLSL fragment shader for Ghostty with two effects: a diagonal **drop shadow** (0.85 mix) simulating parallax between the LCD segment layer and reflective backing, and omnidirectional **ghosting** (0.35 mix, 2px radius) simulating the slow pixel response of vintage LCDs. Both effects only apply where dark text neighbors light background. True temporal ghosting (motion trails on scroll) is not possible without a feedback buffer in Ghostty's shader system.
 - **`extras/gtk4-lcd.css`** — libadwaita/GTK4 color overrides for apps like Nautilus.
 - **`extras/setup-lcd-extras.sh`** — Idempotent install script for the above extras.
 
