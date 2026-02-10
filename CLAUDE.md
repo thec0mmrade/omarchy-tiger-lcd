@@ -13,7 +13,7 @@ omarchy-theme-install https://github.com/thec0mmrade/omarchy-tiger-lcd
 omarchy-theme-set tiger-lcd
 ```
 
-Optional extras (Ghostty LCD shader + GTK4 overrides) are installed separately via `./extras/setup-lcd-extras.sh`.
+Optional extras (Departure Mono Nerd Font, Ghostty LCD shader, and GTK4 overrides) are installed separately via `./extras/setup-lcd-extras.sh`.
 
 ## Architecture
 
@@ -34,9 +34,10 @@ The theme is a flat collection of config files consumed by `omarchy-theme-set`. 
 
 Files in `extras/` are **not** managed by `omarchy-theme-set` and must be installed/removed manually:
 
+- **`extras/DepartureMonoNerdFont*.otf`** — Nerd Font-patched Departure Mono font files (Regular, Mono, Propo). Installed to `~/.local/share/fonts/` and set as system font via `omarchy-font-set`.
 - **`extras/lcd-shadow.glsl`** — GLSL fragment shader for Ghostty that renders a diagonal LCD drop shadow on text.
 - **`extras/gtk4-lcd.css`** — libadwaita/GTK4 color overrides for apps like Nautilus.
-- **`extras/setup-lcd-extras.sh`** — Idempotent install script for the above two files.
+- **`extras/setup-lcd-extras.sh`** — Idempotent install script for the above extras.
 
 ## Key Color Values
 

@@ -10,6 +10,29 @@ GTK4_DIR="$HOME/.config/gtk-4.0"
 echo "=== Tiger LCD Extras Setup ==="
 echo
 
+# --- Departure Mono Nerd Font ---
+FONT_DIR="$HOME/.local/share/fonts"
+FONT_NAME="DepartureMono Nerd Font"
+
+if [ -f "$FONT_DIR/DepartureMonoNerdFont-Regular.otf" ]; then
+  echo "[ok] $FONT_NAME already installed (skipped)"
+else
+  mkdir -p "$FONT_DIR"
+  cp "$SCRIPT_DIR"/DepartureMonoNerdFont*.otf "$FONT_DIR/"
+  echo "[ok] Copied Departure Mono Nerd Font files to $FONT_DIR/"
+  fc-cache -f
+  echo "[ok] Font cache rebuilt"
+fi
+
+if command -v omarchy-font-set &>/dev/null; then
+  omarchy-font-set "$FONT_NAME"
+  echo "[ok] Set system font to $FONT_NAME via omarchy-font-set"
+else
+  echo "[!!] omarchy-font-set not found — set your terminal font to '$FONT_NAME' manually"
+fi
+
+echo
+
 # --- Ghostty LCD shadow shader ---
 if [ -d "$GHOSTTY_DIR" ]; then
   cp "$SCRIPT_DIR/lcd-shadow.glsl" "$GHOSTTY_DIR/lcd-shadow.glsl"
@@ -57,6 +80,8 @@ echo
 echo "NOTE: These extras live OUTSIDE the omarchy theme system."
 echo "When you switch to a different theme, remove them manually:"
 echo
+echo "  rm ~/.local/share/fonts/DepartureMonoNerdFont*.otf && fc-cache -f"
+echo "  omarchy-font-set <your-preferred-font>"
 echo "  rm ~/.config/ghostty/lcd-shadow.glsl"
 echo "  rm ~/.config/gtk-4.0/gtk.css"
 echo

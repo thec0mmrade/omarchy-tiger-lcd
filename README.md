@@ -25,6 +25,7 @@ The theme includes optional LCD shadow effects for Ghostty terminal and libadwai
 ```
 
 This will:
+- Install the **Departure Mono Nerd Font** and set it as the system font via `omarchy-font-set`
 - Copy the GLSL drop-shadow shader to `~/.config/ghostty/`
 - Add `custom-shader` lines to your Ghostty config (if not already present)
 - Install libadwaita color overrides to `~/.config/gtk-4.0/gtk.css` (backs up any existing file)
@@ -34,6 +35,8 @@ This will:
 When switching to a different theme, remove the extras manually:
 
 ```bash
+rm ~/.local/share/fonts/DepartureMonoNerdFont*.otf && fc-cache -f
+omarchy-font-set <your-preferred-font>
 rm ~/.config/ghostty/lcd-shadow.glsl
 rm ~/.config/gtk-4.0/gtk.css
 ```
