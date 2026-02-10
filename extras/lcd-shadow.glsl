@@ -23,7 +23,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     }
 
     vec3 shadow_color = vec3(0.165, 0.169, 0.149); // #2A2B26
-    vec3 result = mix(current.rgb, shadow_color, shadow * 0.6);
+    vec3 result = mix(current.rgb, shadow_color, shadow * 0.85);
 
     fragColor = vec4(result, current.a);
 }
