@@ -10,16 +10,16 @@ GTK4_DIR="$HOME/.config/gtk-4.0"
 echo "=== Tiger LCD Extras Setup ==="
 echo
 
-# --- Departure Mono Nerd Font ---
+# --- Monocraft Nerd Font ---
 FONT_DIR="$HOME/.local/share/fonts"
-FONT_NAME="DepartureMono Nerd Font"
+FONT_NAME="Monocraft"
 
-if [ -f "$FONT_DIR/DepartureMonoNerdFont-Regular.otf" ]; then
+if [ -f "$FONT_DIR/Monocraft-nerd-fonts-patched.ttc" ]; then
   echo "[ok] $FONT_NAME already installed (skipped)"
 else
   mkdir -p "$FONT_DIR"
-  cp "$SCRIPT_DIR"/DepartureMonoNerdFont*.otf "$FONT_DIR/"
-  echo "[ok] Copied Departure Mono Nerd Font files to $FONT_DIR/"
+  cp "$SCRIPT_DIR"/Monocraft-nerd-fonts-patched.ttc "$FONT_DIR/"
+  echo "[ok] Copied Monocraft Nerd Font to $FONT_DIR/"
   fc-cache -f
   echo "[ok] Font cache rebuilt"
 fi
@@ -80,7 +80,7 @@ echo
 echo "NOTE: These extras live OUTSIDE the omarchy theme system."
 echo "When you switch to a different theme, remove them manually:"
 echo
-echo "  rm ~/.local/share/fonts/DepartureMonoNerdFont*.otf && fc-cache -f"
+echo "  rm ~/.local/share/fonts/Monocraft-nerd-fonts-patched.ttc && fc-cache -f"
 echo "  omarchy-font-set <your-preferred-font>"
 echo "  rm ~/.config/ghostty/lcd-shadow.glsl"
 echo "  rm ~/.config/gtk-4.0/gtk.css"
