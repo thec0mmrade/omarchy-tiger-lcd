@@ -1,35 +1,17 @@
-/* TigerLCD - retro LCD overrides for libadwaita apps */
+/* TigerLCD - retro LCD overrides for libadwaita apps (GTK 4.20 compatible) */
+/* Note: @define-color and !important are deprecated in GTK 4.20+ */
 
-/* Core named colors - libadwaita reads these */
-@define-color window_bg_color #BCBDC1;
-@define-color window_fg_color #2A2B26;
-@define-color view_bg_color #BCBDC1;
-@define-color view_fg_color #2A2B26;
-@define-color headerbar_bg_color #B1B2B7;
-@define-color headerbar_fg_color #2A2B26;
-@define-color headerbar_backdrop_color #B7B8BD;
-@define-color headerbar_border_color #2A2B26;
-@define-color sidebar_bg_color #B4B5BA;
-@define-color sidebar_fg_color #2A2B26;
-@define-color sidebar_border_color #2A2B26;
-@define-color sidebar_backdrop_color #B4B5BA;
-@define-color card_bg_color #C1C2C7;
-@define-color card_fg_color #2A2B26;
-@define-color popover_bg_color #BCBDC1;
-@define-color popover_fg_color #2A2B26;
-@define-color dialog_bg_color #BCBDC1;
-@define-color dialog_fg_color #2A2B26;
-@define-color accent_bg_color #626870;
-@define-color accent_fg_color #E1E2E7;
-@define-color accent_color #626870;
-@define-color shade_color rgba(42, 43, 38, 0.18);
-@define-color scrollbar_outline_color rgba(42, 43, 38, 0.15);
-@define-color thumbnail_bg_color #BCBDC1;
+window, window.background {
+  background-color: #BCBDC1;
+}
 
-/* Backdrop versions of all bg colors */
-@define-color window_bg_backdrop_color #BCBDC1;
-@define-color view_bg_backdrop_color #BCBDC1;
-@define-color card_bg_backdrop_color #C1C2C7;
+headerbar {
+  background-color: #B1B2B7;
+}
+
+.sidebar, .navigation-sidebar, .sidebar-pane {
+  background-color: #B4B5BA;
+}
 
 /* Force content/grid backgrounds */
 gridview, grid, flowbox, iconview, list, listview {
@@ -57,38 +39,35 @@ gridview, grid, flowbox, iconview, list, listview {
 }
 
 headerbar:backdrop {
-  background: @headerbar_backdrop_color !important;
-  background-color: @headerbar_backdrop_color !important;
+  background-color: #B7B8BD;
   box-shadow: none;
   transition: none;
 }
 
 .titlebar:backdrop {
-  background: #B7B8BD !important;
-  background-color: #B7B8BD !important;
+  background-color: #B7B8BD;
 }
 
 window:backdrop {
-  background-color: #BCBDC1 !important;
+  background-color: #BCBDC1;
 }
 
 window:backdrop headerbar,
 window:backdrop .titlebar,
 window:backdrop .top-bar {
-  background: #B7B8BD !important;
-  background-color: #B7B8BD !important;
+  background-color: #B7B8BD;
 }
 
 window:backdrop .toolbar,
 window:backdrop .pathbar,
 window:backdrop searchbar {
-  background-color: #B7B8BD !important;
+  background-color: #B7B8BD;
 }
 
 window:backdrop .sidebar,
 window:backdrop .navigation-sidebar,
 window:backdrop .sidebar-pane {
-  background-color: #B4B5BA !important;
+  background-color: #B4B5BA;
 }
 
 window:backdrop gridview,
@@ -98,5 +77,5 @@ window:backdrop iconview,
 window:backdrop list,
 window:backdrop listview,
 window:backdrop .view {
-  background-color: #BCBDC1 !important;
+  background-color: #BCBDC1;
 }
